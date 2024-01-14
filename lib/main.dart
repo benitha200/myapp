@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget{
     const appTitle= 'CWS Transaction';
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.white),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
         // primarySwatch: Colors.teal
       ),
       title: appTitle,
