@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'dashboard.dart';
 import 'farmers.dart';
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget{
     const appTitle= 'CWS Transaction';
     return MaterialApp(
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.white),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
         // primarySwatch: Colors.teal
       ),
       title: appTitle,
@@ -44,7 +42,7 @@ class LandingPage extends StatefulWidget {
   }
 
 class _LandingPageState extends State<LandingPage>{
-  var currentPage=DrawerSections.farmers;
+  var currentPage=DrawerSections.transactions;
   @override
   Widget build(BuildContext context) {
 
@@ -85,11 +83,11 @@ class _LandingPageState extends State<LandingPage>{
       padding: EdgeInsets.only(top: 15,),
       child: Column(
           children: [
-            menuItem(1,"Dashboard",Icons.dashboard_outlined,
+            menuItem(DrawerSections.dashboard.index,"Dashboard",Icons.dashboard_outlined,
             currentPage==DrawerSections.dashboard ?true:false),
-            menuItem(1,"Farmers",Icons.people,
+            menuItem(DrawerSections.farmers.index,"Farmers",Icons.people,
                 currentPage==DrawerSections.farmers ?true:false),
-            menuItem(1,"Transactions",Icons.transfer_within_a_station_sharp,
+            menuItem(DrawerSections.transactions.index,"Transactions",Icons.transfer_within_a_station_sharp,
                 currentPage==DrawerSections.transactions ?true:false),
             // menuItem(),
           ],
@@ -104,13 +102,13 @@ class _LandingPageState extends State<LandingPage>{
         onTap: (){
           Navigator.pop(context);
           setState(() {
-            if(id==1){
+            if(id==DrawerSections.dashboard.index){
               currentPage=DrawerSections.dashboard;
             }
-            else if(id==2){
+            else if(id==DrawerSections.farmers.index){
               currentPage=DrawerSections.farmers;
             }
-            else if(id==3){
+            else if(id==DrawerSections.transactions.index){
               currentPage=DrawerSections.transactions;
             }
           });
